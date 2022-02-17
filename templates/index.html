@@ -2,11 +2,19 @@
 <html>
   <body>
     <h1>Aplicación de tareas EBC</h1>
-    <form action="#">
+    <form action={{url_for('AddNewTask')}} method="POST">
       <div>
-        <input type="text" placeholder="nombre de la tarea..."/>
+        <input type="text" name="task_name" placeholder="nombre de la tarea..."/>
       </div>
       <button type="submit">Agregar tarea</button>
     </form>
+    <div>
+      <h2>Lista de tareas</h2>
+      <ul>
+        {% for task in todoList %}
+        <li>{{task.id}} {{task.name}}</li>
+        {% endfor %}
+      </ul>
+    </div>
   </body>
 </html>
